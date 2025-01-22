@@ -25,7 +25,7 @@ const route = useRoute();
 const postId = Number(route.params.id);
 
 const postsStore = usePostsStore();
-const post = computed(() => postsStore.currentPost);
+const post = computed(() => postsStore.currentPost?.[0]) || {};
 const error = computed(() => postsStore.error);
 const loading = computed(() => postsStore.loading);
 

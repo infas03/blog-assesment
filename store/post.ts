@@ -1,47 +1,35 @@
 import { defineStore } from 'pinia';
-import { blogPosts } from '~/constant/mock';
 import type { Post } from '~/types/post';
-import { fetchPostById } from '~/utils/mockPosts';
 
-export const usePostsStore = defineStore('posts', {
+export const usePostsStore = defineStore('post', {
   state: () => ({
     posts: [] as Post[],
     currentPost: null as Post | null,
     loading: false,
     error: null as string | null,
   }),
-
-  getters: {
-    allPosts: (state): Post[] => state.posts,
-    getPostById: (state) => (id: number): Post | undefined =>
-      state.posts.find((post) => post.id === id),
-  },
-
   actions: {
-    async fetchPosts(): Promise<void> {
-      this.loading = true;
+    async fetchPosts() {
       try {
-        this.posts = await new Promise((resolve) =>
-          setTimeout(() => resolve(blogPosts), 500)
-        );
-        this.error = null;
-      } catch (err) {
-        this.error = 'Failed to fetch posts';
+        this.loading = true;
+        const { $api } = useNuxtApp();
+        this.posts = await $api.get('posts');
+      } catch (error: any) {
+        this.error = error.message || 'Failed to fetch posts';
       } finally {
         this.loading = false;
       }
     },
-
-    async fetchPostById(id: number): Promise<void> {
-      this.loading = true;
+    async fetchPostById(id: number) {
       try {
-        this.currentPost = await fetchPostById(id);
-        this.error = null;
-      } catch (err) {
-        this.error = 'Post not found';
+        this.loading = true;
+        const { $api } = useNuxtApp();
+        this.currentPost = await $api.get(`posts?id=${id}`);
+      } catch (error: any) {
+        this.error = error.message || 'Failed to fetch post';
       } finally {
         this.loading = false;
       }
     },
-  }
+  },
 });

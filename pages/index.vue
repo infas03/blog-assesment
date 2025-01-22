@@ -1,7 +1,9 @@
 <template>
   <div class="flex flex-col w-full gap-y-12">
     <h1 class="text-2xl text-black1 font-bold">Popular Articles</h1>
-    <div v-if="loading" class="text-gray-500">Loading posts...</div>
+    <div v-if="loading" class="space-y-6">
+      <BlogHomeSkeleton />
+    </div>
     <div v-else-if="error" class="text-red-500">{{ error }}</div>
     <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <BlogCard

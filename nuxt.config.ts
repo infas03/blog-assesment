@@ -16,4 +16,11 @@ export default defineNuxtConfig({
     },
     debug: true,
   },
+  runtimeConfig: {
+    apiSecret: 'default-secret',
+    public: {
+      apiUrl: process.env.NUXT_API_URL,
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL,
+    },
+  },
 });
