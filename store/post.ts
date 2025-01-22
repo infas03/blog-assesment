@@ -43,5 +43,5 @@ export const usePostsStore = defineStore('posts', {
         this.loading = false;
       }
     },
-  },
+  }
 });
