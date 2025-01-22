@@ -15,8 +15,11 @@
 <script setup>
 import BlogCard from "~/components/blog/BlogCard.vue";
 import { blogPosts } from "~/constant/mock";
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const navigateToPost = (id) => {
-  console.log(`Navigate to blog post with ID: ${id}`);
+  router.push(`/post/${id}`);
 };
 </script>

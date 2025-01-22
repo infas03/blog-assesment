@@ -9,7 +9,7 @@
         <li>List Your Service</li>
         <li>How it Works</li>
       </ul>
-      <div class="cursor-pointer text-black1/70 text-xs font-normal flex gap-x-4 mt-12">
+      <div class="cursor-pointer text-black1/70 text-xs font-normal flex gap-x-4 mt-12 items-center">
         <span>Privacy Policy</span>
         <span class="font-bold">•</span>
         <span>Privacy Policy</span>
