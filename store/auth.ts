@@ -6,19 +6,32 @@ export const useAuthStore = defineStore("auth", {
     user: null as User | null,
     token: null as string | null,
     isAuthenticated: false,
+    loading: false,
+    error: null as string | null,
   }),
   actions: {
-    login(payload: LoginPayload): boolean {
+    async login(payload: LoginPayload) {
       const { username, password } = payload;
+      this.loading = true;
 
-      if (username === "admin" && password === "password") {
-        this.user = { id: 1, username: "admin", role: "admin" };
-        this.token = "mockToken123";
-        this.isAuthenticated = true;
-        return true;
+      try {
+        this.loading = true;
+        const { $api } = useNuxtApp();
+        const user = await $api.get(`/users?username=${username}`);
+        if (username === user?.[0]?.username && password === user?.[0]?.password) {
+          this.user = user?.[0];
+          this.token = "mockToken123";
+          this.isAuthenticated = true;
+          return true;
+        }
+        return false;
+
+      } catch (error: any) {
+        this.error = error.message || 'Failed to fetch posts';
+        return false;
+      } finally {
+        this.loading = false;
       }
-
-      return false;
     },
     logout() {
       this.user = null;

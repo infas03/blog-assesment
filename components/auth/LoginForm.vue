@@ -22,7 +22,8 @@
       </div>
       <button
         type="submit"
-        class="w-full bg-blue1 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-600"
+        :disabled="loading"
+        class="w-full bg-blue1 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
       >
         Login
       </button>
@@ -33,7 +34,11 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { useAuthStore } from "~/store/auth";
 import type { LoginPayload } from "~/types/auth";
+
+const authStore = useAuthStore();
+const loading = computed(() => authStore.loading);
 
 const props = defineProps({
   onLogin: {
