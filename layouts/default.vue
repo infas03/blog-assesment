@@ -2,18 +2,15 @@
   <div class="flex flex-col min-h-screen">
     <Header />
 
-    <!-- Main Content -->
-    <main class="flex-grow py-8 px-4">
+    <main class="flex-grow py-8 px-10 md:px-[100px]">
       <NuxtPage />
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-4 text-center">
-      <p>&copy; 2025 My Blog. All rights reserved.</p>
-    </footer>
+    <Footer />
   </div>
 </template>
 
 <script setup>
+import Footer from '~/components/layout/Footer.vue';
 import Header from '~/components/layout/Header.vue';
 </script>
