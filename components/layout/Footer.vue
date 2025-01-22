@@ -1,8 +1,8 @@
 <template>
-  <footer class="shadow-header-shadow py-12 pb-9 px-10 md:px-[100px] h-[254px] flex justify-between items-start bg-lightGray">
+  <footer class="shadow-header-shadow py-12 pb-9 px-10 md:px-[100px] minh-[254px] flex justify-between items-start bg-lightGray">
     <div class="flex flex-col w-full">
       <img src="assets/images/Brand.png" alt="Brand Logo" class="h-10 w-20" />
-      <ul class="mt-5 flex flex-row gap-x-6 text-sm text-black1 cursor-pointer">
+      <ul class="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm text-black1 cursor-pointer">
         <li>About Us</li>
         <li>Corporate Events</li>
         <li>Personal Events</li>

@@ -1,25 +1,42 @@
 <template>
   <div class="flex flex-col w-full gap-y-12">
     <h1 class="text-2xl text-black1 font-bold">Popular Articles</h1>
-    <div class="flex gap-5 flex-wrap">
+    <div v-if="loading" class="text-gray-500">Loading posts...</div>
+    <div v-else-if="error" class="text-red-500">{{ error }}</div>
+    <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       <BlogCard
-        v-for="post in blogPosts"
+        v-for="post in posts"
         :key="post.id"
         :post="post"
         @readMore="navigateToPost"
+        @navigateCategory="navigateToCategory"
       />
     </div>
   </div>
 </template>
 
-<script setup>
-import BlogCard from "~/components/blog/BlogCard.vue";
-import { blogPosts } from "~/constant/mock";
-import { useRouter } from 'vue-router';
+<script setup lang="ts">
+import { usePostsStore } from '~/store/post';
 
 const router = useRouter();
+const postsStore = usePostsStore();
 
-const navigateToPost = (id) => {
+const posts = computed(() => postsStore.posts);
+const loading = computed(() => postsStore.loading);
+const error = computed(() => postsStore.error);
+
+onMounted(() => {
+  if (!posts.value.length) {
+    postsStore.fetchPosts();
+  }
+});
+
+// Navigation handlers
+const navigateToPost = (id: number) => {
   router.push(`/post/${id}`);
+};
+
+const navigateToCategory = (category: string) => {
+  router.push(`/category/${encodeURIComponent(category)}`);
 };
 </script>

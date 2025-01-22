@@ -1,15 +1,7 @@
 import { defineStore } from 'pinia';
 import { blogPosts } from '~/constant/mock';
+import type { Post } from '~/types/post';
 import { fetchPostById } from '~/utils/mockPosts';
-
-interface Post {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  category: string;
-  createdDate: number;
-}
 
 export const usePostsStore = defineStore('posts', {
   state: () => ({
