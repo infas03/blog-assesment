@@ -6,7 +6,7 @@
     <div v-else-if="error" class="text-red-500">{{ error }}</div>
     <div v-else-if="post">
       <div class="rounded-lg bg-white flex flex-col md:flex-row gap-6">
-        <img :src="post?.image" :alt="post?.title" class="md:w-1/2 h-[280px] object-cover rounded-lg" />
+        <img :src="post?.image" :alt="post?.title" class="md:w-1/2 h-[280px] object-cover rounded-lg" loading="lazy" />
         <div class="flex flex-col gap-2">
           <h1 class="text-xl font-bold text-gray2">{{ post?.title }}</h1>
           <div @click="onCategory" class="cursor-pointer w-fit bg-gray-400 text-white text-[10px] font-bold uppercase px-2.5 py-2 rounded-lg">{{ post?.category }}</div>

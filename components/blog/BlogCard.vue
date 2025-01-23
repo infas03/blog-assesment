@@ -3,7 +3,7 @@
     class="relative group cursor-pointer rounded-lg overflow-hidden transition-transform duration-300 ease-in-out w-full  hover:scale-105 hover:shadow-lg"
     @click="onReadMore"
   >
-    <img :src="post.image" :alt="post.title" class="w-full h-[280px] object-cover rounded-lg" />
+    <img :src="post.image" :alt="post.title" class="w-full h-[280px] object-cover rounded-lg" loading="lazy" />
     <div class="p-0 transition-all duration-300 ease-in-out group-hover:p-2">
       <span class="text-xs text-gray1">{{ formatDate(post.createdDate) }}</span>
       <h2 class="text-base font-semibold text-gray2 mt-2">
