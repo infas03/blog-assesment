@@ -23,8 +23,9 @@ export const useAuthStore = defineStore("auth", {
           this.token = "mockToken123";
           this.isAuthenticated = true;
           return true;
+        } else {
+          return false;
         }
-        return false;
 
       } catch (error: any) {
         this.error = error.message || 'Failed to fetch posts';

@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     "pinia-plugin-persistedstate/nuxt",
     "@nuxtjs/tailwindcss",
     "nuxt-svgo",
+    '@nuxt/test-utils/module'
   ],
   piniaPluginPersistedstate: {
     key: 'prefix_%id_postfix',
