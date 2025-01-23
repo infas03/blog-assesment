@@ -30,6 +30,16 @@ It's already dynamically navigate. this is FYI
 
 - Create Post: https://blog-assesment-vert.vercel.app/admin/create-post
 
+## Dropdown
+
+Login Button -> Click User Icon, You can see
+
+-<img width="436" alt="Screenshot 2025-01-23 at 17 29 45" src="https://github.com/user-attachments/assets/7b240e3b-d904-413d-b799-13da6a9ad5ca" />
+
+
+Create Post Button -> Click hamburger Icon, You can see
+
+-<img width="438" alt="Screenshot 2025-01-23 at 17 31 36" src="https://github.com/user-attachments/assets/aed6967b-847e-46ba-8306-0f2e39dba19a" />
 
 ## Tech
 NuxtJS, Pinia, TailwindCSS, MockAPI
