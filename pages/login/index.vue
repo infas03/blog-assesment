@@ -1,10 +1,8 @@
 <template>
   <div class="flex items-center justify-center">
     <LoginForm :onLogin="handleLogin" />
-    <ToastBar v-if="toastVisible" :message="toastMessage" />
+    <ToastBar :message="toastMessage" type="error"/>
   </div>
-
-
 </template>
 
 <script setup lang="ts">
@@ -17,7 +15,6 @@ import ToastBar from "~/components/ui/ToastBar.vue";
 const authStore = useAuthStore();
 const router = useRouter();
 
-const toastVisible = ref(false);
 const toastMessage = ref("");
 
 const handleLogin = async (payload: LoginPayload) => {
@@ -26,17 +23,11 @@ const handleLogin = async (payload: LoginPayload) => {
     router.push("/");
   } else {
     console.log('wrong')
-    showToast("The Username and Password is wrong")
+    toastMessage.value = ""; 
+    setTimeout(() => {
+      toastMessage.value = "The Username and Password is wrong";
+    }, 10);
   }
   return success;
-};
-
-const showToast = (message: string) => {
-  toastMessage.value = message;
-  toastVisible.value = true;
-
-  setTimeout(() => {
-    toastVisible.value = false;
-  }, 2000);
 };
 </script>

@@ -43,5 +43,22 @@ export const usePostsStore = defineStore('post', {
         this.loading = false;
       }
     },
+    async addPost(newPost: Post) {
+      console.log('newPost2: ', newPost)
+
+      try {
+        this.loading = true;
+        const { $api } = useNuxtApp();
+        const createdPost = await $api.post('/posts', newPost);
+        console.log('createdPost: ', createdPost)
+        await this.fetchPosts();
+        return true;
+      } catch (error: any) {
+        this.error = error.message || 'Failed to create post';
+        return false;
+      } finally {
+        this.loading = false;
+      }
+    },
   },
 });
