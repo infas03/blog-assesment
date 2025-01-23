@@ -1,75 +1,38 @@
-# Nuxt Minimal Starter
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+# Blog-Assesment
+A simple NuxtJS App
 
-## Setup
+## Demo
+https://blog-assesment-vert.vercel.app
 
-Make sure to install dependencies:
 
-```bash
-# npm
-npm install
+## Testing Credentials
+Admin ->
 
-# pnpm
-pnpm install
+    Username: admin
+    Password: password123
 
-# yarn
-yarn install
+User ->
 
-# bun
-bun install
-```
+    Username: user
+    Password: user123
 
-## Development Server
+## Roadmap
+It's already dynamically navigate. this is FYI
 
-Start the development server on `http://localhost:3000`:
+- Home: https://blog-assesment-vert.vercel.app/
 
-```bash
-# npm
-npm run dev
+- Login: https://blog-assesment-vert.vercel.app/Login
 
-# pnpm
-pnpm dev
+- Individual Post: https://blog-assesment-vert.vercel.app/post/${id}
 
-# yarn
-yarn dev
+- Individual Post: https://blog-assesment-vert.vercel.app/category/${category_name}
 
-# bun
-bun run dev
-```
+- Create Post: https://blog-assesment-vert.vercel.app/admin/create-post
 
-## Production
 
-Build the application for production:
+## Tech
+NuxtJS, Pinia, TailwindCSS, MockAPI
 
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## Authors
+- [@infas03](https://www.github.com/infas03)
