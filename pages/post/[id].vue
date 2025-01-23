@@ -33,6 +33,10 @@ onMounted(() => {
   postsStore.fetchPostById(postId);
 });
 
+useHead({
+  title: post.value.title || 'Events',
+})
+
 const onCategory = () => {
   if (post.value && post.value.category) {
     router.push(`/category/${encodeURIComponent(post.value.category)}`);

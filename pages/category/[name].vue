@@ -32,6 +32,10 @@ const router = useRouter();
 
 const categoryName = route.params.name as string;
 
+useHead({
+  title: categoryName || 'Events',
+})
+
 const postsStore = usePostsStore();
 const filteredPosts = computed(() => postsStore.categoriesPosts);
 const loading = computed(() => postsStore.loading);
